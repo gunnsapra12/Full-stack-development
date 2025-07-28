@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function handleInput() {
+            let day = parseInt(document.getElementById("day").value);
+
+            let yourCategory = " ";
+            switch (day) {
+                case 1:
+                    yourCategory = "Monday";
+                    break;
+                case 2:
+                    yourCategory = "Tuesday";
+                    break;
+                case 3:
+                    yourCategory = "Wednesday";
+                    break;
+                case 4:
+                    yourCategory = "Thursday";
+                    break;
+                case 5:
+                    yourCategory = "Friday";
+                    break;
+                case 6:
+                    yourCategory = "Saturday";
+                    break;
+                case 7:
+                    yourCategory = "Sunday";
+                    break;
+                default:
+                    yourCategory = "Invalid day";
+                    break;
+            }
+
+            document.getElementById("result").innerText = yourCategory;
+        }
+    </script>
+</head>
+
+<body class="bg-blue-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
+        <h1 class="bg-pink-300 font-bold text-3xl p-2 rounded">Day checker</h1>
+        <label class="block mt-4 mb-2 text-lg font-medium text-gray-700">Enter your day</label>
+        <!-- day input field -->
+        <input type="number" id="day" placeholder="Enter day" class="w-full p-2 border-2 border-blue-400 rounded-md mb-4">
+        <button onclick="handleInput()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Check</button>
+
+        <!-- p tag field -->
+        <p id="result" class="mt-4 text-xl font-semibold text-purple-700"></p>
+    </div>
+</body>
+
+</html>
