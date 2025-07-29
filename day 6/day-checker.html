@@ -5,28 +5,29 @@
     <script> 
         function handleInput() {
             let day = parseInt(document.getElementById("day").value);
+            console.log(typeof day); // string
         
         let yourcategory = " ";
-        switch (day) {
+        switch (day) { 
             case 1:
                 yourCategory = "Monday";
                 break;
             case 2:
                 yourCategory = "tuesday"
                 break;
-            case 3:
+            case "3":
                 yourCategory = "wednesday";
                 break;
-            case 4:
+            case "4":
                 yourCategory = "thursday";
                 break;
-            case 5:
+            case "5":
                 yourCategory = "friday";
                 break;
-            case 6:
-                yourCategory = "saturday";
+            case "6":
+                yourCategory = "Saturday";
                 break;
-            case 7:
+            case "7":
                 yourCategory = "sunday";
                 break;
             default:
@@ -40,11 +41,11 @@
 </head>
 
 <body>
-    <h1>day checker</h1>
+    <h1 class="bg-pink-300 font-bold text-3xl">Day checker</h1>
     <label>Enter your day</label>
     <!-- day input field -->
     <input type="number" id="day" placeholder="Enter day">
-    <button onclick="handleInput()">check</button>
+    <button onclick="handleInput()">Check</button>
 
     <!-- p tag field -->
     <p id="result"></p>
