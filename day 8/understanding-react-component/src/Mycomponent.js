@@ -1,9 +1,9 @@
-import { App } from './App.js'
+import {App} from './App.js'
+
 function MyComponent() {
-    return (
+    return(
         <div>
-            <h1>
-                my react is working</h1>
+            <h1>my react is working</h1>
             <App/>
         </div>
     )

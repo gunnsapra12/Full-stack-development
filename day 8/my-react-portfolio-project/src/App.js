@@ -6,8 +6,8 @@ function App(){
     <div>
       <h1>My Portfolio</h1>
       <About />
-      <Contact />
       <Skills />
+      <Contact />
     </div>
   )
 }
