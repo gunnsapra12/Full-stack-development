@@ -1,4 +1,4 @@
-function VariableInsJsx(){
+function VariableInJsx(){
     let name="gunn"
     let address="rohtak"
 
@@ -10,4 +10,4 @@ function VariableInsJsx(){
         </div>
     );
 }
-export { VariableInsJsx }
+export { VariableInJsx }

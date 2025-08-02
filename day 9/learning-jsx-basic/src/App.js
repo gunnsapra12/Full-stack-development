@@ -1,6 +1,7 @@
-import { VariableInsJsx } from './VariableInJsx.js'
+import { VariableInJsx } from './VariableInJsx.js'
 import { ConditionInJsx } from './ConditionInJsx.js'
 import { FunctionInJsx } from './FunctionInJsx.js'
+import { RenderList } from './RenderList.js'
 
 function App() {
     return (
@@ -8,11 +9,13 @@ function App() {
             {/* inside curly braces we write javascript expression */}
             <p>result = {2 + 6}</p>
 
-            <VariableInsJsx />
+            <VariableInJsx />
 
             <ConditionInJsx />
 
             <FunctionInJsx />
+
+            <RenderList />
 
         </div>
     )
