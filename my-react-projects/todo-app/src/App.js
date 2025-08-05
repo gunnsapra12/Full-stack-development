@@ -1,8 +1,19 @@
+import Header from './Header';
+import HomePage from './HomePage';
+import Footer from './Footer';
+import AddTodoPage from './AddTodoPage';
 function App() {
   return (
     <div>
-      <h1>react app is working</h1>
+      
+      <Header/>
+      <HomePage/>
+      
+      <AddTodoPage/>
+      <Footer/>
+
     </div>
+  
   );
 }
 
