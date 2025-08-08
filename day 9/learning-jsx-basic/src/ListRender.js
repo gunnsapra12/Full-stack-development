@@ -4,8 +4,8 @@ function myFunction(value) {
     )
 }
 
-function RenderList() {
-    let fruits = ["banana", "apple", "kiwi"]
+function ListRender() {
+    let fruits = ["Banana", "Apple", "Kiwi", "Pineapple"]
 
     // parantheses () to write jsx in javascript
     // curly {} to write javascript in html
@@ -23,4 +23,4 @@ function RenderList() {
     )
 }
 
-export { RenderList }
+export { ListRender }

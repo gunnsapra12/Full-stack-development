@@ -1,13 +1,13 @@
 function VariableInJsx(){
-    let name="gunn"
-    let address="rohtak"
+    let name = "Puneet Sharma";
+    let address = "Panipat, Haryana"
 
     return(
         <div>
-            {/*accessing variable in jsx in curly braces*/}
-            <h1>my name is {name}</h1>
-            <h2>my address is {address}</h2>
+            <h1>My name is = {name}</h1>
+            <h1>My Address is = {address}</h1>
         </div>
     );
 }
-export { VariableInJsx }
+
+export { VariableInJsx}

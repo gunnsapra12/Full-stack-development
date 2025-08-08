@@ -1,20 +1,21 @@
-//external css
+// importing css file for external css styling
 import './index.css'
-import {Addingtailwind} from './Addingtailwind.js';
-function App() { 
+import { AddingTailwind } from './AddingTailwind'; 
+
+function App() {
     return (
         <div>
-            {/*internal css*/}
+            {/* internal css */}
             <style>
-                {`p{
-                    color:red
+                {`h2{
+                    color:red;
                 }`}
             </style>
-            {/*inline css*/}
-            <h1 style={{color:"blue"}}>my react is working </h1>
-            <p>this is my p tag</p>
-            <h2> this is my external css</h2>
-            <Addingtailwind/>
+            {/* inline css  */}
+            <h1 style={{ color: "blue" }}>my react is working</h1>
+            <h2>this is my internal css</h2>
+            <h3> this is my external css styling</h3>
+            <AddingTailwind />
         </div>
     )
 }

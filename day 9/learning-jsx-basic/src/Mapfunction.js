@@ -1,4 +1,4 @@
-let fruits=["banana","apple","kiwi"]
-fruits.map((value,index)=>{
-    console.log(`fruit=${value},index=${index}`)
+let fruits = ["Banana","Apple","Kiwi"]
+fruits.map((value , index) =>{
+    console.log(`value = ${value} index = ${index}`)
 })
