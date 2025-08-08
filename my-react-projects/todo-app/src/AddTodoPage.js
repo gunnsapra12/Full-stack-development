@@ -9,6 +9,7 @@ function AddTodoPage(props) {
     dueDate: "",
     status: "pending"
   })
+  
   function handleChange(e) {
 
     let inputName = e.target.name;
@@ -32,7 +33,7 @@ function AddTodoPage(props) {
         "todoTitle": formData.todoTitle,
         "dueDate": formData.dueDate,
         "status": formData.status,
-        "completeDate": "",
+        "completedDate": "",
       }
     ]))
   }
