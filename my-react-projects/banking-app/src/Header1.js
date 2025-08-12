@@ -1,7 +1,7 @@
 function Header1() {
     return (
         <div>
-            <header class="bg-gradient-to-r from-green-300 via-blue-200 to-blue-300 shadow-md">
+            <header class="bg-gradient-to-r from-purple-300 via-blue-200 to-green-200 shadow-md">
                 <nav class="flex justify-between items-center px-8 py-4">
 
                     <div>
