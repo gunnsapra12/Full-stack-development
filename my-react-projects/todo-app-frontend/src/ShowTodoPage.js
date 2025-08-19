@@ -1,4 +1,4 @@
-import { callGetAllAPI, callUpdateAPI } from "./BackendAPI";
+import { callGetAllAPI, callUpdateAPI,callDeleteAPI } from "./BackendAPI";
 
 function ShowTodoPage(props) {
 
@@ -12,7 +12,15 @@ function ShowTodoPage(props) {
           {status:'completed',completionDate:new Date()},{'todoId':todoId})
         let todoList=await callGetAllAPI('/read-todos');
         props.setTodo(todoList);
-    }
+    };
+    async function handleDeleteClick(e, todoId) {
+       
+        await callDeleteAPI(
+          '/delete-todo',
+          {'todoId':todoId})
+        let todoList=await callGetAllAPI('/read-todos');
+        props.setTodo(todoList);
+    };
 
     return (
         <div className="flex justify-center items-center h-[500px] bg-gradient-to-br from-pink-100 to-purple-200">
@@ -22,6 +30,7 @@ function ShowTodoPage(props) {
         <th className="px-6 py-3 border border-gray-300 text-lg font-semibold">Todo Title</th>
         <th className="px-6 py-3 border border-gray-300 text-lg font-semibold">Due Date</th>
         <th className="px-6 py-3 border border-gray-300 text-lg font-semibold">Mark Done</th>
+        <th className="px-6 py-3 border border-gray-300 text-lg font-semibold">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +49,15 @@ function ShowTodoPage(props) {
                   ✅
                 </button>
               </td>
+
+              <td className="px-6 py-2 border border-gray-300">
+                    <button
+                      onClick={(e) => handleDeleteClick(e, todo.todoId)}
+                      className="bg-blue-100 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm transition"
+                    >
+                      ❌
+                    </button>
+                  </td>
             </tr>
           )
         ))
