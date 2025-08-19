@@ -5,12 +5,21 @@ import AddTodoPage from './AddTodoPage';
 import ShowTodoPage from './ShowTodoPage';
 import DoneTodoPage from './DoneTodoPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
+import {callGetAllAPI} from './BackendAPI'
+async function fetchTodos(setTodo){
+  const TodoList=await callGetAllAPI('/read-todos');
+  setTodo(TodoList);
+}
 
 function App() {
   // todo is a state type of arrays of object
   let [todo, setTodo] = useState([])
 
+//useEffect is hook in react which call after app.js component render
+useEffect(()=>{
+  fetchTodos(setTodo)
+},[]);
 
   return (
     <BrowserRouter>

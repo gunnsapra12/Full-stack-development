@@ -1,18 +1,17 @@
+import { callGetAllAPI, callUpdateAPI } from "./BackendAPI";
+
 function ShowTodoPage(props) {
 
     let todoArr = props.todo;
+    console.log(JSON.stringify(todoArr))
 
-    function handleClick(e, todoId) {
-        let newTodoArr = []
-        for (let i = 0; i < todoArr.length; i++) {
-            newTodoArr[i] = todoArr[i]
-
-            if (todoArr[i].id == todoId) {
-                newTodoArr[i].status = "completed";
-                newTodoArr[i].completedDate = new Date()
-            }
-        }
-        props.setTodo(newTodoArr);
+    async function handleClick(e, todoId) {
+       
+        await callUpdateAPI(
+          '/update-todo',
+          {status:'completed',completionDate:new Date()},{'todoId':todoId})
+        let todoList=await callGetAllAPI('/read-todos');
+        props.setTodo(todoList);
     }
 
     return (
@@ -29,13 +28,13 @@ function ShowTodoPage(props) {
       {
         todoArr.map((todo, index) => (
           todo.status == "pending" && (
-            <tr key={todo.id} className="hover:bg-gray-100 transition">
+            <tr key={todo.todoId} className="hover:bg-gray-100 transition">
               <td className="px-6 py-2 border border-gray-300">{todo.todoTitle}</td>
               <td className="px-6 py-2 border border-gray-300">{todo.status}</td>
               <td className="px-6 py-2 border border-gray-300 flex justify-center">
                 <span className="mr-4">{todo.dueDate}</span>
                 <button 
-                  onClick={(e) => handleClick(e, todo.id)} 
+                  onClick={(e) => handleClick(e, todo.todoId)} 
                   className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-full text-sm transition"
                 >
                   ✅
