@@ -4,9 +4,12 @@ import Footer from './Footer';
 import AddTodoPage from './AddTodoPage';
 import ShowTodoPage from './ShowTodoPage';
 import DoneTodoPage from './DoneTodoPage';
+import LoginPage from './LoginPage';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {useEffect, useState} from 'react'
-import {callGetAllAPI} from './BackendAPI'
+import {useEffect, useState} from 'react';
+import {callGetAllAPI} from './BackendAPI';
+
 async function fetchTodos(setTodo){
   const TodoList=await callGetAllAPI('/read-todos');
   setTodo(TodoList);
@@ -30,6 +33,7 @@ useEffect(()=>{
         <Route path="/todo-add"element={<AddTodoPage todo={todo} setTodo={setTodo} />}/>
         <Route path="/todo-show"element={<ShowTodoPage todo={todo} setTodo={setTodo} />} />
         <Route path="/todo-done"element={<DoneTodoPage todo={todo} setTodo={setTodo}/>}/>
+        <Route path="/todo-login"element={<LoginPage todo ={todo}setTodo={setTodo}/>}/>
       </Routes>
 
       <Footer />

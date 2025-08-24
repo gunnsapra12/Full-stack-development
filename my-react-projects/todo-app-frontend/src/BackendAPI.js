@@ -14,7 +14,7 @@ async function callCreateAPI(apiPath, body) {
             return null;
         });
 }
-async function callGetAllAPI(apiPath, body) {
+async function callGetAllAPI(apiPath) {
     return await axios.get(host + apiPath)
         .then(response => {
             console.log(`callGetAllAPI response ${JSON.stringify(response.data)}`);

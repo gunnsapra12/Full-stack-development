@@ -65,6 +65,7 @@ function AddTodoPage(props) {
               type="date"
               className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               name="dueDate"
+              required
               value={formData.dueDate}
               onChange={(e) => handleChange(e)}
             />

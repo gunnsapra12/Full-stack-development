@@ -9,31 +9,32 @@ import TransactionPage from "./TransactionPage";
 import TransferPage from "./TransferPage";
 import LogoutPage from "./LogoutPage";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
-  let[isLogin, setIsLogin]=useState(false)
-
+  let [isLogin, setIsLogin] = useState(false)
+  let [account, setAccount] = useState([])
   return (
+    <BrowserRouter>
+      {isLogin === false 
+  ? <Header1 isLogin={isLogin} setIsLogin={setIsLogin} /> 
+  : <Header2 isLogin={isLogin} setIsLogin={setIsLogin} />}
 
-    <div>
-      
-      {isLogin===false? <Header1/>: <Header2/>}
-      
-      
-      
-      <Homepage/>
-      
-      <CreateAccountPage isLogin={isLogin} setIsLogin={setIsLogin}/>
-      <LoginPage isLogin={isLogin} setIsLogin={setIsLogin}/>
-      
-      <BankDetailPage/>
-      
-      <TransferPage/>
-      <TransactionPage/>
-      <LogoutPage isLogin={isLogin} setIsLogin={setIsLogin}/>
+      <Routes>
 
-      <Footer/>
-      
-    </div>
+        <Route path="/" element={<Homepage />} />
+
+        <Route path="/create-account"element={<CreateAccountPage account={account} setAccount={setAccount }/>}/>
+        <Route path="/login" element={<LoginPage isLogin={isLogin} setIsLogin={setIsLogin} />}/>
+        <Route path="/bank-detail" element={<BankDetailPage account={account} setAccount={setAccount} />} />
+        <Route path="/transfer" element={<TransferPage account={account}setAccount={setAccount} />} />
+        <Route path="/transaction" element={<TransactionPage account={account}setAccount={setAccount} />} />
+        <Route path="/logout" element={<LogoutPage  isLogin={isLogin} setIsLogin={setIsLogin} />}/>
+
+      </Routes>
+
+      <Footer />
+    </BrowserRouter>
+
   );
 }
 

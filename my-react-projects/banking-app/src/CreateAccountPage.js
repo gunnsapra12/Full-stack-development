@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-function CreateAccountPage(props) {
-  let isLogin = props.isLogin;
-  let setIsLogin = props.setAccount;
 
+function CreateAccountPage(props) {
+  let account = props.account;       // renamed from account
+  let setAccount = props.setAccount;  // clearer name
+  
   let [formData, setFormData] = useState({
     Name: "",
     number: "",
@@ -14,7 +15,7 @@ function CreateAccountPage(props) {
   function handleChange(e) {
     let inputName = e.target.name;
     let inputValue = e.target.value;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [inputName]: inputValue
     }));
@@ -24,16 +25,13 @@ function CreateAccountPage(props) {
     e.preventDefault();
     alert("Form submitted: " + JSON.stringify(formData));
 
-    setIsLogin((previousAccounts) => [
-      ...previousAccounts,
+    setAccount(previousAccount => ([
+      ...previousAccount,
       {
         id: Date.now(),
-        Name: formData.Name,
-        number: formData.number,
-        Branch: formData.Branch,
-        Password: formData.Password
+        ...formData
       }
-    ]);
+    ]));
 
     // Clear form after submission
     setFormData({
@@ -46,7 +44,6 @@ function CreateAccountPage(props) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-200 to-purple-300 p-6">
-      {formData.Name}
       <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200 p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
           🏦 Create your Bank Account

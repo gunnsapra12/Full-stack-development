@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage({ setIsLogin, isLogin }) {
   const [formData, setFormData] = useState({
     number: "",
     Password: ""
   });
+  const navigate=useNavigate();
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -24,6 +26,7 @@ function LoginPage({ setIsLogin, isLogin }) {
     });
 
     setIsLogin(true);
+    navigate("/bank-detail");
   }
 
   return (
